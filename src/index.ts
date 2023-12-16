@@ -116,3 +116,42 @@ buttonPlay.addEventListener("click", () => {
     container.style.display = "flex";
     buttonPlay.style.display = "none";
 });
+
+let touchStartX = 0;
+let touchStartY = 0;
+
+canvas.addEventListener("touchstart", ({ touches }) => {
+    touchStartX = touches[0].clientX;
+    touchStartY = touches[0].clientY;
+});
+
+canvas.addEventListener("touchend", ({ changedTouches }) => {
+    const deltaTouchX = touchStartX - changedTouches[0].clientX;
+    const deltaTouchY = touchStartY - changedTouches[0].clientY;
+
+    if (Math.abs(deltaTouchX) >= 30) {
+        if (deltaTouchX < 0) {
+            piece.moveRight(board);
+        }
+
+        if (deltaTouchX > 0) {
+            piece.moveLeft(board);
+        }
+    }
+
+    if (deltaTouchY <= -30 && deltaTouchY >= -150) {
+        piece.softDrop(board);
+    }
+
+    if (deltaTouchY < -150) {
+        piece.hardDrop(board);
+    }
+});
+
+canvas.addEventListener("click", () => {
+    piece.rotate(board);
+});
+
+canvas.addEventListener("touchmove", (event) => {
+    event.preventDefault();
+});
