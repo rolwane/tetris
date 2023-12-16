@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Silkscreen";
+}
+
+body {
+    color: #f2f2f2;
+    background-color: #121212;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: none;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.game--menu {
+    flex: 1;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.game--menu > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.next-piece {
+    margin: 10px 0;
+}
+
+.title {
+    font-size: 1rem;
+}
+
+.score , .level {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.button--play {
+    background: none;
+    padding: 5px 10px 5px 5px;
+    border-radius: 5px;
+    border: none;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.button--play > span {
+    font-size: 2rem;
+}
+
+.button--play:hover {
+    background-color: #f2f2f2;
+    color: #121212;
+}
+
+@media screen and (max-width: 470px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .game--menu {
+        flex-direction: row;
+        margin-top: 20px;
+        gap: 20px;
+    }
+
+    .score , .level {
+        margin-bottom: 20px;
+    }
+}
